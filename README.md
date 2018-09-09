@@ -13,6 +13,9 @@ In 2016 I made a basic web crawler, found <a href="https://github.com/ByronFiler
 
 # Prequisites
 
+### Cache Folder
+Make a directory/folder and call it cache, this will store all html data saved and be used for searching, without this it will not be able to place new files there.
+
 ### Beautiful Soup
 `pip3 install BeautifulSoup4`
 
