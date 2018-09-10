@@ -155,9 +155,19 @@ while (True):
 					linksWorkingLink = linksToProcess[0]
 				
 				except urllib.error.URLError:
-					# Connection Error
-					print("\nConnection Error, Exiting...")
-					sys.exit(1)
+					# Connection Error or Invalid SSL Certificate
+
+					try:
+
+						urllib.request.urlopen("https://google.com/")
+						
+						linksToProcess.pop(0)
+						processedLinks.append(linksWorkingLink)
+						linksWorkingLink = linksToProcess[0]
+
+					except urllib.error.URLError:
+						print("\nConnection Error, Exiting...")
+						sys.exit(1)
 
 				except Exception:
 					# Unknown Exception, happens when the page is more of say pure binary data or something
